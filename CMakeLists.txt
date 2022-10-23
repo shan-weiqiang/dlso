@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(myapp)
-add_executable(app app.cpp)
+add_executable(myapp app.cpp)
 add_subdirectory(somelib)
 add_subdirectory(secondlib)
+add_subdirectory(dlopen)
 set(CMAKE_BUILD_TYPE Debug)

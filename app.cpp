@@ -15,6 +15,7 @@ int main() {
                "myclass and inner:\n"
             << "address of static inner in main: " << &SomeClass::inner << '\n'
             << "value of static inner: " << SomeClass::inner.a << '\n'
+            << "address of myclass in main: " << &myclass << '\n'
             << '\n';
   /**
    * before return of dlopen:
@@ -31,15 +32,16 @@ int main() {
    * _attribute_((constructor)), global variables will be initialized again
    *
    */
-  auto handle = dlopen(
-      "/home/osboxes/playground/dlso/build/somelib/libsomelib.so", RTLD_NOW);
+  auto handle =
+      dlopen("/home/osboxes/playground/dlso/dlso/build/somelib/libsomelib.so",
+             RTLD_NOW);
   std::cout << "address of handle: " << handle << std::endl
             << "somelib dlopened from main~\n"
             << '\n'
             << "<<< start dlopen secondlib~ <<<\n";
-  auto handle_secondlib =
-      dlopen("/home/osboxes/playground/dlso/build/secondlib/libsecondlib.so",
-             RTLD_NOW);
+  auto handle_secondlib = dlopen(
+      "/home/osboxes/playground/dlso/dlso/build/secondlib/libsecondlib.so",
+      RTLD_NOW);
 
   std::cout << "address of handle_secondlib: " << handle_secondlib << std::endl
             << "secondlib dlopened from main~\n"
