@@ -130,6 +130,20 @@ app/fast:
 	cd /home/osboxes/playground/dlso/dlso/build && $(MAKE) $(MAKESILENT) -f dlopen/app/CMakeFiles/app.dir/build.make dlopen/app/CMakeFiles/app.dir/build
 .PHONY : app/fast
 
+# Convenience name for target.
+dlopen/app/CMakeFiles/halfapp.dir/rule:
+	cd /home/osboxes/playground/dlso/dlso/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dlopen/app/CMakeFiles/halfapp.dir/rule
+.PHONY : dlopen/app/CMakeFiles/halfapp.dir/rule
+
+# Convenience name for target.
+halfapp: dlopen/app/CMakeFiles/halfapp.dir/rule
+.PHONY : halfapp
+
+# fast build rule for target.
+halfapp/fast:
+	cd /home/osboxes/playground/dlso/dlso/build && $(MAKE) $(MAKESILENT) -f dlopen/app/CMakeFiles/halfapp.dir/build.make dlopen/app/CMakeFiles/halfapp.dir/build
+.PHONY : halfapp/fast
+
 __/greet/src/Greet.o: __/greet/src/Greet.cpp.o
 .PHONY : __/greet/src/Greet.o
 
@@ -178,6 +192,30 @@ src/app.cpp.s:
 	cd /home/osboxes/playground/dlso/dlso/build && $(MAKE) $(MAKESILENT) -f dlopen/app/CMakeFiles/app.dir/build.make dlopen/app/CMakeFiles/app.dir/src/app.cpp.s
 .PHONY : src/app.cpp.s
 
+src/halfapp.o: src/halfapp.cpp.o
+.PHONY : src/halfapp.o
+
+# target to build an object file
+src/halfapp.cpp.o:
+	cd /home/osboxes/playground/dlso/dlso/build && $(MAKE) $(MAKESILENT) -f dlopen/app/CMakeFiles/halfapp.dir/build.make dlopen/app/CMakeFiles/halfapp.dir/src/halfapp.cpp.o
+.PHONY : src/halfapp.cpp.o
+
+src/halfapp.i: src/halfapp.cpp.i
+.PHONY : src/halfapp.i
+
+# target to preprocess a source file
+src/halfapp.cpp.i:
+	cd /home/osboxes/playground/dlso/dlso/build && $(MAKE) $(MAKESILENT) -f dlopen/app/CMakeFiles/halfapp.dir/build.make dlopen/app/CMakeFiles/halfapp.dir/src/halfapp.cpp.i
+.PHONY : src/halfapp.cpp.i
+
+src/halfapp.s: src/halfapp.cpp.s
+.PHONY : src/halfapp.s
+
+# target to generate assembly for a file
+src/halfapp.cpp.s:
+	cd /home/osboxes/playground/dlso/dlso/build && $(MAKE) $(MAKESILENT) -f dlopen/app/CMakeFiles/halfapp.dir/build.make dlopen/app/CMakeFiles/halfapp.dir/src/halfapp.cpp.s
+.PHONY : src/halfapp.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -187,12 +225,16 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... app"
+	@echo "... halfapp"
 	@echo "... __/greet/src/Greet.o"
 	@echo "... __/greet/src/Greet.i"
 	@echo "... __/greet/src/Greet.s"
 	@echo "... src/app.o"
 	@echo "... src/app.i"
 	@echo "... src/app.s"
+	@echo "... src/halfapp.o"
+	@echo "... src/halfapp.i"
+	@echo "... src/halfapp.s"
 .PHONY : help
 
 

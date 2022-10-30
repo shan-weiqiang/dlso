@@ -9,6 +9,7 @@
  */
 SomeClass myclass{0};
 InnerClass SomeClass::inner;
+
 int main() {
   SomeClass::inner.a = 10;
   std::cout << "following lines are called after calling constructor of "

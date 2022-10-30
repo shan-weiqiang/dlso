@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/osboxes/playground/dlso/dlso/dlopen
+CXX_INCLUDES = -I/home/osboxes/playground/dlso/dlso/dlopen -I/home/osboxes/playground/dlso/dlso
 
 CXX_FLAGS = 
 

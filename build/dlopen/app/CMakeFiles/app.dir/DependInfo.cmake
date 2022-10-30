@@ -15,7 +15,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/osboxes/playground/dlso/dlso/build/dlopen/test/CMakeFiles/test.dir/DependInfo.cmake"
-  "/home/osboxes/playground/dlso/dlso/build/dlopen/dll/CMakeFiles/Hello.dir/DependInfo.cmake"
+  "/home/osboxes/playground/dlso/dlso/build/dlopen/hello/CMakeFiles/Hello.dir/DependInfo.cmake"
+  "/home/osboxes/playground/dlso/dlso/build/dlopen/independentso/CMakeFiles/indep.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

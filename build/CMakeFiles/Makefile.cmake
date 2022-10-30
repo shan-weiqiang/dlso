@@ -13,7 +13,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.22.1/CMakeSystem.cmake"
   "../dlopen/CMakeLists.txt"
   "../dlopen/app/CMakeLists.txt"
-  "../dlopen/dll/CMakeLists.txt"
+  "../dlopen/halfso/CMakeLists.txt"
+  "../dlopen/hello/CMakeLists.txt"
   "../dlopen/independentso/CMakeLists.txt"
   "../dlopen/test/CMakeLists.txt"
   "../secondlib/CMakeLists.txt"
@@ -49,10 +50,11 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "somelib/CMakeFiles/CMakeDirectoryInformation.cmake"
   "secondlib/CMakeFiles/CMakeDirectoryInformation.cmake"
   "dlopen/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "dlopen/dll/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "dlopen/hello/CMakeFiles/CMakeDirectoryInformation.cmake"
   "dlopen/app/CMakeFiles/CMakeDirectoryInformation.cmake"
   "dlopen/independentso/CMakeFiles/CMakeDirectoryInformation.cmake"
   "dlopen/test/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "dlopen/halfso/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -60,8 +62,11 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/myapp.dir/DependInfo.cmake"
   "somelib/CMakeFiles/somelib.dir/DependInfo.cmake"
   "secondlib/CMakeFiles/secondlib.dir/DependInfo.cmake"
-  "dlopen/dll/CMakeFiles/Hello.dir/DependInfo.cmake"
+  "dlopen/hello/CMakeFiles/Hello.dir/DependInfo.cmake"
   "dlopen/app/CMakeFiles/app.dir/DependInfo.cmake"
+  "dlopen/app/CMakeFiles/halfapp.dir/DependInfo.cmake"
   "dlopen/independentso/CMakeFiles/indep.dir/DependInfo.cmake"
   "dlopen/test/CMakeFiles/test.dir/DependInfo.cmake"
+  "dlopen/halfso/CMakeFiles/half.dir/DependInfo.cmake"
+  "dlopen/halfso/CMakeFiles/definition.dir/DependInfo.cmake"
   )

@@ -109,7 +109,8 @@ dlopen/app/app: dlopen/app/CMakeFiles/app.dir/src/app.cpp.o
 dlopen/app/app: dlopen/app/CMakeFiles/app.dir/__/greet/src/Greet.cpp.o
 dlopen/app/app: dlopen/app/CMakeFiles/app.dir/build.make
 dlopen/app/app: dlopen/test/libtest.so
-dlopen/app/app: dlopen/dll/libHello.so
+dlopen/app/app: dlopen/hello/libHello.so
+dlopen/app/app: dlopen/independentso/libindep.so
 dlopen/app/app: dlopen/app/CMakeFiles/app.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/osboxes/playground/dlso/dlso/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable app"
 	cd /home/osboxes/playground/dlso/dlso/build/dlopen/app && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/app.dir/link.txt --verbose=$(VERBOSE)

@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/osboxes/playground/dlso/dlso/build/dlopen/dll/cmake_install.cmake")
+  include("/home/osboxes/playground/dlso/dlso/build/dlopen/hello/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
@@ -60,5 +60,10 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
   include("/home/osboxes/playground/dlso/dlso/build/dlopen/test/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/osboxes/playground/dlso/dlso/build/dlopen/halfso/cmake_install.cmake")
 endif()
 

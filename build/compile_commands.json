@@ -15,33 +15,38 @@
   "file": "/home/osboxes/playground/dlso/dlso/secondlib/secondlib.cpp"
 },
 {
-  "directory": "/home/osboxes/playground/dlso/dlso/build/dlopen/dll",
-  "command": "/usr/bin/c++ -DHello_EXPORTS -I/home/osboxes/playground/dlso/dlso/dlopen -fPIC -o CMakeFiles/Hello.dir/src/Hello.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/dll/src/Hello.cpp",
-  "file": "/home/osboxes/playground/dlso/dlso/dlopen/dll/src/Hello.cpp"
-},
-{
-  "directory": "/home/osboxes/playground/dlso/dlso/build/dlopen/dll",
-  "command": "/usr/bin/c++ -DHello_EXPORTS -I/home/osboxes/playground/dlso/dlso/dlopen -fPIC -o CMakeFiles/Hello.dir/__/greet/src/Greet.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/greet/src/Greet.cpp",
+  "directory": "/home/osboxes/playground/dlso/dlso/build/dlopen/hello",
+  "command": "/usr/bin/c++ -DHello_EXPORTS -I/home/osboxes/playground/dlso/dlso/dlopen -I/home/osboxes/playground/dlso/dlso -fPIC -o CMakeFiles/Hello.dir/__/greet/src/Greet.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/greet/src/Greet.cpp",
   "file": "/home/osboxes/playground/dlso/dlso/dlopen/greet/src/Greet.cpp"
 },
 {
+  "directory": "/home/osboxes/playground/dlso/dlso/build/dlopen/hello",
+  "command": "/usr/bin/c++ -DHello_EXPORTS -I/home/osboxes/playground/dlso/dlso/dlopen -I/home/osboxes/playground/dlso/dlso -fPIC -o CMakeFiles/Hello.dir/src/Hello.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/hello/src/Hello.cpp",
+  "file": "/home/osboxes/playground/dlso/dlso/dlopen/hello/src/Hello.cpp"
+},
+{
   "directory": "/home/osboxes/playground/dlso/dlso/build/dlopen/app",
-  "command": "/usr/bin/c++  -I/home/osboxes/playground/dlso/dlso/dlopen  -o CMakeFiles/app.dir/src/app.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/app/src/app.cpp",
+  "command": "/usr/bin/c++  -I/home/osboxes/playground/dlso/dlso/dlopen -I/home/osboxes/playground/dlso/dlso  -o CMakeFiles/app.dir/src/app.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/app/src/app.cpp",
   "file": "/home/osboxes/playground/dlso/dlso/dlopen/app/src/app.cpp"
 },
 {
   "directory": "/home/osboxes/playground/dlso/dlso/build/dlopen/app",
-  "command": "/usr/bin/c++  -I/home/osboxes/playground/dlso/dlso/dlopen  -o CMakeFiles/app.dir/__/greet/src/Greet.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/greet/src/Greet.cpp",
+  "command": "/usr/bin/c++  -I/home/osboxes/playground/dlso/dlso/dlopen -I/home/osboxes/playground/dlso/dlso  -o CMakeFiles/app.dir/__/greet/src/Greet.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/greet/src/Greet.cpp",
   "file": "/home/osboxes/playground/dlso/dlso/dlopen/greet/src/Greet.cpp"
 },
 {
+  "directory": "/home/osboxes/playground/dlso/dlso/build/dlopen/app",
+  "command": "/usr/bin/c++  -I/home/osboxes/playground/dlso/dlso/dlopen -I/home/osboxes/playground/dlso/dlso/dlopen/halfso  -o CMakeFiles/halfapp.dir/src/halfapp.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/app/src/halfapp.cpp",
+  "file": "/home/osboxes/playground/dlso/dlso/dlopen/app/src/halfapp.cpp"
+},
+{
   "directory": "/home/osboxes/playground/dlso/dlso/build/dlopen/independentso",
-  "command": "/usr/bin/c++ -Dindep_EXPORTS -I/home/osboxes/playground/dlso/dlso/dlopen -fPIC -o CMakeFiles/indep.dir/inde.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/independentso/inde.cpp",
+  "command": "/usr/bin/c++ -Dindep_EXPORTS -I/home/osboxes/playground/dlso/dlso/dlopen -I/home/osboxes/playground/dlso/dlso -fPIC -o CMakeFiles/indep.dir/inde.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/independentso/inde.cpp",
   "file": "/home/osboxes/playground/dlso/dlso/dlopen/independentso/inde.cpp"
 },
 {
   "directory": "/home/osboxes/playground/dlso/dlso/build/dlopen/independentso",
-  "command": "/usr/bin/c++ -Dindep_EXPORTS -I/home/osboxes/playground/dlso/dlso/dlopen -fPIC -o CMakeFiles/indep.dir/__/greet/src/Greet.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/greet/src/Greet.cpp",
+  "command": "/usr/bin/c++ -Dindep_EXPORTS -I/home/osboxes/playground/dlso/dlso/dlopen -I/home/osboxes/playground/dlso/dlso -fPIC -o CMakeFiles/indep.dir/__/greet/src/Greet.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/greet/src/Greet.cpp",
   "file": "/home/osboxes/playground/dlso/dlso/dlopen/greet/src/Greet.cpp"
 },
 {
@@ -53,5 +58,15 @@
   "directory": "/home/osboxes/playground/dlso/dlso/build/dlopen/test",
   "command": "/usr/bin/c++ -Dtest_EXPORTS -I/home/osboxes/playground/dlso/dlso/dlopen -fPIC -o CMakeFiles/test.dir/__/greet/src/Greet.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/greet/src/Greet.cpp",
   "file": "/home/osboxes/playground/dlso/dlso/dlopen/greet/src/Greet.cpp"
+},
+{
+  "directory": "/home/osboxes/playground/dlso/dlso/build/dlopen/halfso",
+  "command": "/usr/bin/c++ -Dhalf_EXPORTS -I/home/osboxes/playground/dlso/dlso/dlopen -I/home/osboxes/playground/dlso/dlso/dlopen/halfso -fPIC -o CMakeFiles/half.dir/halfso.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/halfso/halfso.cpp",
+  "file": "/home/osboxes/playground/dlso/dlso/dlopen/halfso/halfso.cpp"
+},
+{
+  "directory": "/home/osboxes/playground/dlso/dlso/build/dlopen/halfso",
+  "command": "/usr/bin/c++ -Ddefinition_EXPORTS  -fPIC -o CMakeFiles/definition.dir/definition.cpp.o -c /home/osboxes/playground/dlso/dlso/dlopen/halfso/definition.cpp",
+  "file": "/home/osboxes/playground/dlso/dlso/dlopen/halfso/definition.cpp"
 }
 ]

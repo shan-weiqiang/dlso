@@ -1,7 +1,8 @@
 #include "greet/inc/Greet.h"
+#include "sample.h"
 #include <stdio.h>
-
+// SampleStruct ex_sample;
 Greet g;
 __attribute__((constructor)) void func() {
-  std::cout << "address of g in indepso: " << &g << '\n';
+  printf("address of g indepso: %p\n", &g);
 }

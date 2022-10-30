@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/halfapp.dir/src/halfapp.cpp.o -o halfapp  -Wl,-rpath,/home/osboxes/playground/dlso/dlso/build/dlopen/halfso ../halfso/libhalf.so 

@@ -9,10 +9,11 @@
 /home/osboxes/playground/dlso/dlso/build/secondlib/CMakeFiles/rebuild_cache.dir
 /home/osboxes/playground/dlso/dlso/build/dlopen/CMakeFiles/edit_cache.dir
 /home/osboxes/playground/dlso/dlso/build/dlopen/CMakeFiles/rebuild_cache.dir
-/home/osboxes/playground/dlso/dlso/build/dlopen/dll/CMakeFiles/Hello.dir
-/home/osboxes/playground/dlso/dlso/build/dlopen/dll/CMakeFiles/edit_cache.dir
-/home/osboxes/playground/dlso/dlso/build/dlopen/dll/CMakeFiles/rebuild_cache.dir
+/home/osboxes/playground/dlso/dlso/build/dlopen/hello/CMakeFiles/Hello.dir
+/home/osboxes/playground/dlso/dlso/build/dlopen/hello/CMakeFiles/edit_cache.dir
+/home/osboxes/playground/dlso/dlso/build/dlopen/hello/CMakeFiles/rebuild_cache.dir
 /home/osboxes/playground/dlso/dlso/build/dlopen/app/CMakeFiles/app.dir
+/home/osboxes/playground/dlso/dlso/build/dlopen/app/CMakeFiles/halfapp.dir
 /home/osboxes/playground/dlso/dlso/build/dlopen/app/CMakeFiles/edit_cache.dir
 /home/osboxes/playground/dlso/dlso/build/dlopen/app/CMakeFiles/rebuild_cache.dir
 /home/osboxes/playground/dlso/dlso/build/dlopen/independentso/CMakeFiles/indep.dir
@@ -21,3 +22,7 @@
 /home/osboxes/playground/dlso/dlso/build/dlopen/test/CMakeFiles/test.dir
 /home/osboxes/playground/dlso/dlso/build/dlopen/test/CMakeFiles/edit_cache.dir
 /home/osboxes/playground/dlso/dlso/build/dlopen/test/CMakeFiles/rebuild_cache.dir
+/home/osboxes/playground/dlso/dlso/build/dlopen/halfso/CMakeFiles/half.dir
+/home/osboxes/playground/dlso/dlso/build/dlopen/halfso/CMakeFiles/definition.dir
+/home/osboxes/playground/dlso/dlso/build/dlopen/halfso/CMakeFiles/edit_cache.dir
+/home/osboxes/playground/dlso/dlso/build/dlopen/halfso/CMakeFiles/rebuild_cache.dir

@@ -165,7 +165,7 @@ Hello: cmake_check_build_system
 
 # fast build rule for target.
 Hello/fast:
-	$(MAKE) $(MAKESILENT) -f dlopen/dll/CMakeFiles/Hello.dir/build.make dlopen/dll/CMakeFiles/Hello.dir/build
+	$(MAKE) $(MAKESILENT) -f dlopen/hello/CMakeFiles/Hello.dir/build.make dlopen/hello/CMakeFiles/Hello.dir/build
 .PHONY : Hello/fast
 
 #=============================================================================
@@ -180,6 +180,19 @@ app: cmake_check_build_system
 app/fast:
 	$(MAKE) $(MAKESILENT) -f dlopen/app/CMakeFiles/app.dir/build.make dlopen/app/CMakeFiles/app.dir/build
 .PHONY : app/fast
+
+#=============================================================================
+# Target rules for targets named halfapp
+
+# Build rule for target.
+halfapp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 halfapp
+.PHONY : halfapp
+
+# fast build rule for target.
+halfapp/fast:
+	$(MAKE) $(MAKESILENT) -f dlopen/app/CMakeFiles/halfapp.dir/build.make dlopen/app/CMakeFiles/halfapp.dir/build
+.PHONY : halfapp/fast
 
 #=============================================================================
 # Target rules for targets named indep
@@ -206,6 +219,32 @@ test: cmake_check_build_system
 test/fast:
 	$(MAKE) $(MAKESILENT) -f dlopen/test/CMakeFiles/test.dir/build.make dlopen/test/CMakeFiles/test.dir/build
 .PHONY : test/fast
+
+#=============================================================================
+# Target rules for targets named half
+
+# Build rule for target.
+half: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 half
+.PHONY : half
+
+# fast build rule for target.
+half/fast:
+	$(MAKE) $(MAKESILENT) -f dlopen/halfso/CMakeFiles/half.dir/build.make dlopen/halfso/CMakeFiles/half.dir/build
+.PHONY : half/fast
+
+#=============================================================================
+# Target rules for targets named definition
+
+# Build rule for target.
+definition: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 definition
+.PHONY : definition
+
+# fast build rule for target.
+definition/fast:
+	$(MAKE) $(MAKESILENT) -f dlopen/halfso/CMakeFiles/definition.dir/build.make dlopen/halfso/CMakeFiles/definition.dir/build
+.PHONY : definition/fast
 
 app.o: app.cpp.o
 .PHONY : app.o
@@ -241,6 +280,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Hello"
 	@echo "... app"
+	@echo "... definition"
+	@echo "... half"
+	@echo "... halfapp"
 	@echo "... indep"
 	@echo "... myapp"
 	@echo "... secondlib"
