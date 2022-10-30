@@ -25,8 +25,8 @@ void func_without_definition(double a);
  * dlopen. Note, as long as this lib is linked in either phase, all the symbols,
  * whether it' used or not used, must find definitions.
  */
-// SampleStruct sample;
-// extern SampleStruct ex_sample;
+SampleStruct sample;
+extern SampleStruct ex_sample;
 
 Greet g;
 // 这里如果用了extern，则指向了test中的g，不会重复构造
@@ -51,7 +51,7 @@ static int a = 0;
 void test(); // 只有声明，没有实现也能编译通过，会在运行时查找
 void __attribute__((constructor)) fn();
 void __attribute__((constructor)) fn() {
-  // func_without_definition(3);
+  func_without_definition(3);
   printf("<<< now libhello-->((constructor)) called~\n");
   printf("<<< now dlopen libtest two times\n");
   /** @attention: even dlopened twice, libtest's ((constructor)) and global
@@ -74,7 +74,7 @@ void __attribute__((constructor)) fn() {
   printf("Greet::sflag:%d\n", Greet::sflag);
   printf("address of Greet::sflag from Hello.so:%p\n", &Greet::sflag);
   printf("address of g in libhello: %p\n", &g);
-  // printf("address of ex_sample libHello: %p\n", &ex_sample);
+  printf("address of ex_sample libHello: %p\n", &ex_sample);
   printf("<<< now end of libhello-->((constructor)) <<<\n\n");
   printf("<<< now Greet g and q will be constructed in order\n");
   //在Hello.so的内存映射区域，说明从静态库内部访问全局变量的静态成员，访问的是动态库自己的静态成员；

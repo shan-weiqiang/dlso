@@ -113,13 +113,11 @@ Greet g;
 // Greet g;
 
 int a;
-// extern int b;
+int b;
 }
-SampleStruct::SampleStruct() { std::cout << "SampleStruct ctor called~\n"; }
-SampleStruct::~SampleStruct() { std::cout << "SampleStruct dtor called~\n"; }
-void SampleStruct::somefunc() {
-  std::cout << "SampleStruct::somefunc() called~\n";
-}
+SampleStruct::SampleStruct() { printf("SampleStruct ctor called~\n"); }
+SampleStruct::~SampleStruct() { printf("SampleStruct dtor called~\n"); }
+void SampleStruct::somefunc() { printf("SampleStruct::somefunc() called~\n"); }
 int main() {
   g.flag = 1;
   std::cout << '\n'
@@ -162,9 +160,8 @@ int main() {
   std::cout
       << "<<< now end of dlopen libhello twice and libtest <<<\n"
       << "from main: a = " << a << std::endl
-      << "address of app.a: " << &a
-      << '\n'
-      // << "address of app.b: " << &b
+      << "address of app.a: " << &a << '\n'
+      << "address of app.b: " << &b
       << "\n"
       // app和test.so中都有int
       // a全局变量，但是他们是不相关的，地址不在统一区域；app的a是在全局变量区域；test的a是在动态库的映射区域
