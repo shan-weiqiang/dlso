@@ -24,7 +24,7 @@
    - same name variables in  *dependent* shared libs (might be different type), in this case:
      - if variable has no constructor, such as `double data`, then the variable will be only initialized once; for example, `char hook='c'` exists in main program, `int hook = 32` in one shared libs that main program depends on, then the two variable have same address and works like a union.
      - if variable is a class that has constructor, then the constructor will be called at the same address multiple times
-     - @attention: never let this happen.
+     - @attention: never let this happen. This the same with linking with .o files with same name variables, string, weak symol rule apply
 
 2. use `-rdynamic` build flag to export all symbols
 
