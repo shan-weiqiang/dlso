@@ -98,6 +98,23 @@
  are same symbols in executable(including compile time shared libs) and dlopened
  shared libs, if they are all strong symbols, those in executables will be used
  for dlopened shred libs.
+
+ For load time shared libs, because they are linked during compile time, all
+ there symbols are combined with executables, this means all the symbols, even
+ they are not used by executables, must be fully linked(defined); Symbol tables
+ are combined during compile time for executable and shared libs. ps: if first
+ compile with a shared lib, then add some undefined symbol in this same lib and
+ only compile this lib but without recompile the executable, then the executable
+ can run successfully, this means that during load time, the dynamic linker does
+ not recombine symbol table with the executable, it only relocates the GOT table
+ of the executable. For dloped shared libs, if RTLD_NOW is used, then all
+ symbols, including these not used, must be resolved. If RTLD_LAZY is used, then
+ only during execution the symbols be resolved.
+
+ If not compile using --export-dynamic option, only those symbols that are
+ referenced by other shared libs are in the .dynsym table, such as same name
+ globals, functions that is refernced etc. Otherwise, symbols only exist in
+ .symtab.
  *
  *
  */
@@ -113,7 +130,7 @@ Greet g;
 // Greet g;
 
 int a;
-int b;
+extern int b;
 }
 SampleStruct::SampleStruct() { printf("SampleStruct ctor called~\n"); }
 SampleStruct::~SampleStruct() { printf("SampleStruct dtor called~\n"); }

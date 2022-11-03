@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 extern "C" {
-void func_without_definition(double a);
+// void func_without_definition(double a);
 /**
  * @attention: even sample does not have function defininition, libHello can
  * still be built!! This is a big difference between executables and shared
@@ -51,7 +51,7 @@ static int a = 0;
 void test(); // 只有声明，没有实现也能编译通过，会在运行时查找
 void __attribute__((constructor)) fn();
 void __attribute__((constructor)) fn() {
-  func_without_definition(3);
+  // func_without_definition(3);
   printf("<<< now libhello-->((constructor)) called~\n");
   printf("<<< now dlopen libtest two times\n");
   /** @attention: even dlopened twice, libtest's ((constructor)) and global
