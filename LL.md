@@ -6,7 +6,6 @@
    - symbols that are defined in this object file
    - symbols that are referenced by this object file
 2. only globals, including global function names and variables, and static local variables have names in symbol table; local variable do not have names in symbol table
-
 3. `.symtab` and `.dynsym` section of ELF file store symbol table, difference:
    - `.symtab` stores all symbols; `.dynsym` stores symbols that to be used by dynamic linker: either symbols that provided by this object file or symbols that need to find in another shared libs.
    - `.symtab` do not need to load into memory during execution
@@ -14,6 +13,11 @@
    - `.dynsym` is a subset of `.symtab`
 4. compiler generate one symbol item whenever it encounter a global or static names during compilation
    - this means if one symbol is not used in program, compiler will not generate the symbol, for example, if only define `extern double data`, plus not using it inside any function, their will be no `data` symbol, because it is `extern` and never used inside this object file, meaning that it has no relationship with this object file. But if define `double data`, then `data` is valid symbol because, this means that this object file has a global name `data`
+
+## difference between compilation linking and dynamic linking
+
+1. link at compilation time obeys ODR strictly, if multidefinition is found there will be errors
+2. link at dynamic is different, at this time there might be multidefinitions of on symbol, the linker's job is to relocate every symbol to the right position. For example, when dlopen shared libs, there might be same symbols, the linker will determine where the symbol points to.
 
 ## more about `.dynsym`
 
@@ -30,8 +34,8 @@
 
        -rdynamic
               Pass the flag -export-dynamic to the ELF linker, on targets that support it. This instructs the linker to add all symbols, not only used ones, to the dynamic symbol table. This option is needed for some uses of "dlopen" or to allow obtaining backtraces from within a program.
-
-​		note that `-rdynamic` is only used to pass `-export-dynamic` link option to the linker, so in `cmake` projects, two add options have to be used for this function: `target_compile_options(app PUBLIC -rdynamic)` and `target_link_options(app PUBLIC -export-dynamic)`, because `cmake` add these two options seperately.
+       
+       note that `-rdynamic` is only used to pass `-export-dynamic` link option to the linker, so in `cmake` projects, two add options have to be used for this function: `target_compile_options(app PUBLIC -rdynamic)` and `target_link_options(app PUBLIC -export-dynamic)`, because `cmake` add these two options seperately.
 
 # facts got in the mud
 
