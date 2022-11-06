@@ -16,8 +16,8 @@
 
 ## difference between compilation linking and dynamic linking
 
-1. link at compilation time obeys ODR strictly, if multidefinition is found there will be errors
-2. link at dynamic is different, at this time there might be multidefinitions of on symbol, the linker's job is to relocate every symbol to the right position. For example, when dlopen shared libs, there might be same symbols, the linker will determine where the symbol points to.
+1. link at compilation time obeys ODR strictly, if multi-definition is found there will be errors
+2. link at dynamic is different, at this time there might be multi-definitions of on symbol, the linker's job is to relocate every symbol to the right position. For example, when dlopen shared libs, there might be same symbols, the linker will determine where the symbol points to.
 
 ## more about `.dynsym`
 
@@ -34,8 +34,8 @@
 
        -rdynamic
               Pass the flag -export-dynamic to the ELF linker, on targets that support it. This instructs the linker to add all symbols, not only used ones, to the dynamic symbol table. This option is needed for some uses of "dlopen" or to allow obtaining backtraces from within a program.
-       
-       note that `-rdynamic` is only used to pass `-export-dynamic` link option to the linker, so in `cmake` projects, two add options have to be used for this function: `target_compile_options(app PUBLIC -rdynamic)` and `target_link_options(app PUBLIC -export-dynamic)`, because `cmake` add these two options seperately.
+
+3. note that `-rdynamic` is only used to pass `-export-dynamic` link option to the linker, so in `cmake` projects, two add options have to be used for this function: `target_compile_options(app PUBLIC -rdynamic)` and `target_link_options(app PUBLIC -export-dynamic)`, because `cmake` add these two options separately.
 
 # facts got in the mud
 
@@ -57,14 +57,19 @@ For a given `Type VarName`:
 # dlopen
 
 * when using dlopen in the middle of program, for `Type VarName` inside this shared lib in `.dynsym`:
-  1. if  `Type VarName` already exit in the process, ODR applies
+  1. if  `Type VarName` already exist in the process，**in the main program object file or any dependent shared libs**, ODR applies
          1. if has extern keywords: constructor will not be called again
-           2. if not has extern, constructor will be called again, in the address of `Type VarName`
+         2. if not has extern, constructor will be called again, in the address of `Type VarName`
     2. if `Type VarName` does not exit in the process,`Type VarName` will be constructed inside this shared lib
-    3. if multi shared lib with this `Type VarName` is dlopened, `Type VarName` exist individually inside these shared libs and have different addresses.
-* Since shared libs which are dlopened are not linked during compile time, so the executables does not know what symbols this dlopen shared lib have. This determines that all the symbol definition and extern variables can not depend on dlopened shared libs, because they have to be fully linked during compile time and startup phase. On the contrary, symbol definitions and extern variables inside dlopened shared libs must be linked by dynamic linker obeying ODR rule. If shared lib that is dlopened has undefined symbol(must be used by the executable, for example in the ctor of globals of this lib, or in __((constructor))__), plus these symbols can not find definition by the executable(they might be found in executable itself or in one of dependent shared libs), there will be a undefined symbol error(can be printed using printf("%s\n", dlerror());
-* Besides, dlopened shared libs do NOT share symbols between each other(peer to peer), for example, libA has undefined symbol S, libB has this symbol S defined, executable first dlopen libA, then dlopen libB, there still will be undefined symbol error for symbol S in libB. Executable can only find definitions in itself or in shared libs which are linked during compile time. They also do not shared symbols between each other(parent to son), for example, shared lib A is dlopened, A dlopen B, then symbols in A will not be shared by B.
-* Executables will share all symbols with dlopened libs, for example, if there are same symbols in executable(including compile time shared libs) and dlopened shared libs, if they are all strong symbols, those in executables will be used for dlopened shred libs.
+    3. if multi shared lib with this `Type VarName` is dlopened, the behavior depends on flags used when using dlopen
+* Since shared libs which are dlopened are not linked during compile time, so the executables does not know what symbols this dlopen shared lib have. This determines that all the symbol definition and extern variables can not depend on dlopened shared libs, because they have to be fully linked during compile time and startup phase. On the contrary, symbol definitions and extern variables inside dlopened shared libs must be linked by dynamic linker. If shared lib that is dlopened has undefined symbol(must be used by the executable, for example in the ctor of globals of this lib, or in __((constructor))__; *remark later: otherwise there will not have this symbol !* ), plus these symbols can not find definition by the executable(they might be found in executable itself or in one of dependent shared libs), there will be a undefined symbol error(can be printed using printf("%s\n", dlerror());
+* symbol sharing:
+
+  - peer to peer: symbol resolve between dlopened shared libs are controlled by dlopen flags(`RTLD_LOCAL`, `RTLD_GLOBAL`..)
+
+  * parent to son: 
+
+* Executables will share all symbols with dlopened libs, for example, if there are same symbols in executable(including compile time shared libs) and dlopened shared libs, if they are all strong symbols, those in executables will be used for dlopened shared libs.
 
 # inline and symbols
 
@@ -75,7 +80,7 @@ For a given `Type VarName`:
 
 
 
-# template and shard libs and symbols
+# template and shared libs and symbols
 
 1. the essence of templates are that the definitions(code) are generated by compilers during compiling time, according to the specific type the user use; This characteristic determines that:
    - if use templates as shared lib, one has to explicitly instantiate all the types that are going to be provided by this shared lib, because without explicitly instantiation, the code doesn't even exist
