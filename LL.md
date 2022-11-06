@@ -5,7 +5,7 @@
 1. symbols are a collection of items that describe where the name is defined and other attributes of symbols. It acts as index of all symbols of this object file and it can appear in any ELF section.  It includes:
    - symbols that are defined in this object file
    - symbols that are referenced by this object file
-2.  only globals, including global function names and variables, and static local variables have names in symbol table; local variable do not have names in symbol table
+2. only globals, including global function names and variables, and static local variables have names in symbol table; local variable do not have names in symbol table
 
 3. `.symtab` and `.dynsym` section of ELF file store symbol table, difference:
    - `.symtab` stores all symbols; `.dynsym` stores symbols that to be used by dynamic linker: either symbols that provided by this object file or symbols that need to find in another shared libs.
@@ -31,7 +31,7 @@
        -rdynamic
               Pass the flag -export-dynamic to the ELF linker, on targets that support it. This instructs the linker to add all symbols, not only used ones, to the dynamic symbol table. This option is needed for some uses of "dlopen" or to allow obtaining backtraces from within a program.
 
-
+​		note that `-rdynamic` is only used to pass `-export-dynamic` link option to the linker, so in `cmake` projects, two add options have to be used for this function: `target_compile_options(app PUBLIC -rdynamic)` and `target_link_options(app PUBLIC -export-dynamic)`, because `cmake` add these two options seperately.
 
 # facts got in the mud
 
@@ -53,11 +53,11 @@ For a given `Type VarName`:
 # dlopen
 
 * when using dlopen in the middle of program, for `Type VarName` inside this shared lib in `.dynsym`:
-    1. if  `Type VarName` already exit in the process, ODR applies
-            1. if has extern keywords: constructor will not be called again
-              2. if not has extern, constructor will be called again, in the address of `Type VarName`
-      2. if `Type VarName` does not exit in the process,`Type VarName` will be constructed inside this shared lib
-      3. if multi shared lib with this `Type VarName` is dlopened, `Type VarName` exist individually inside these shared libs and have different addresses.
+  1. if  `Type VarName` already exit in the process, ODR applies
+         1. if has extern keywords: constructor will not be called again
+           2. if not has extern, constructor will be called again, in the address of `Type VarName`
+    2. if `Type VarName` does not exit in the process,`Type VarName` will be constructed inside this shared lib
+    3. if multi shared lib with this `Type VarName` is dlopened, `Type VarName` exist individually inside these shared libs and have different addresses.
 * Since shared libs which are dlopened are not linked during compile time, so the executables does not know what symbols this dlopen shared lib have. This determines that all the symbol definition and extern variables can not depend on dlopened shared libs, because they have to be fully linked during compile time and startup phase. On the contrary, symbol definitions and extern variables inside dlopened shared libs must be linked by dynamic linker obeying ODR rule. If shared lib that is dlopened has undefined symbol(must be used by the executable, for example in the ctor of globals of this lib, or in __((constructor))__), plus these symbols can not find definition by the executable(they might be found in executable itself or in one of dependent shared libs), there will be a undefined symbol error(can be printed using printf("%s\n", dlerror());
 * Besides, dlopened shared libs do NOT share symbols between each other(peer to peer), for example, libA has undefined symbol S, libB has this symbol S defined, executable first dlopen libA, then dlopen libB, there still will be undefined symbol error for symbol S in libB. Executable can only find definitions in itself or in shared libs which are linked during compile time. They also do not shared symbols between each other(parent to son), for example, shared lib A is dlopened, A dlopen B, then symbols in A will not be shared by B.
 * Executables will share all symbols with dlopened libs, for example, if there are same symbols in executable(including compile time shared libs) and dlopened shared libs, if they are all strong symbols, those in executables will be used for dlopened shred libs.
