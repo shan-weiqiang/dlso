@@ -7,16 +7,12 @@
 
 int main(int argc, char const *argv[])
 {
-    auto first_handle = dlopen("./build/libfirst.so", RTLD_NOW | RTLD_LOCAL);
+    auto first_handle = dlopen("./build/libfirst.so", RTLD_NOW | RTLD_GLOBAL);
     if (!first_handle)
     {
         printf("%s\n", dlerror());
     }
-    auto second_handle = dlopen("./build/libsecond.so", RTLD_NOW | RTLD_LOCAL);
-    if (!second_handle)
-    {
-        printf("%s\n", dlerror());
-    }
+
     /**
      * @brief this line add variable a into .dynsym
      *
