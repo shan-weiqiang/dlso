@@ -67,6 +67,7 @@ For a given `Type VarName`:
 1. inline functions are designed to be flatted out in the calling function, without call stack, so the definition means that there isn't a symbol for the inline functions; Suppose there is a symbol for the inline function, then this symbol is reference by another object file, then the function code for this symbol must be seperated from the calling function, which is exactly against the definition of inline
 2. class methods that are defined inside `class {}` are inline functions by default, so there will be no symbols for these methods
 3. class with declaration(header file) and definition(cpp file) seperated are not inline functions, this is the normal way for create shared libs.
+4. **inline is just a recommandation for compiler**
 
 
 
