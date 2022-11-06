@@ -2,4 +2,9 @@
 
 #include <stdio.h>
 
-SomeClass someclass;
+extern SomeClass someclass;
+
+void second_some_func()
+{
+    printf("%p\n", &someclass);
+}
