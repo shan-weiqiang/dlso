@@ -57,17 +57,20 @@ For a given `Type VarName`:
 # dlopen
 
 * when using dlopen in the middle of program, for `Type VarName` inside this shared lib in `.dynsym`:
+
   1. if  `Type VarName` already exist in the process，**in the main program object file or any dependent shared libs**, ODR applies
          1. if has extern keywords: constructor will not be called again
          2. if not has extern, constructor will be called again, in the address of `Type VarName`
     2. if `Type VarName` does not exit in the process,`Type VarName` will be constructed inside this shared lib
     3. if multi shared lib with this `Type VarName` is dlopened, the behavior depends on flags used when using dlopen
+
 * Since shared libs which are dlopened are not linked during compile time, so the executables does not know what symbols this dlopen shared lib have. This determines that all the symbol definition and extern variables can not depend on dlopened shared libs, because they have to be fully linked during compile time and startup phase. On the contrary, symbol definitions and extern variables inside dlopened shared libs must be linked by dynamic linker. If shared lib that is dlopened has undefined symbol(must be used by the executable, for example in the ctor of globals of this lib, or in __((constructor))__; *remark later: otherwise there will not have this symbol !* ), plus these symbols can not find definition by the executable(they might be found in executable itself or in one of dependent shared libs), there will be a undefined symbol error(can be printed using printf("%s\n", dlerror());
+
 * symbol sharing:
 
   - peer to peer: symbol resolve between dlopened shared libs are controlled by dlopen flags(`RTLD_LOCAL`, `RTLD_GLOBAL`..)
 
-  * parent to son: 
+  * parent to son: **first dlopen A, A dlopen B, even A use `RTLD_GLOBAL`, symbols in A will not share with B**
 
 * Executables will share all symbols with dlopened libs, for example, if there are same symbols in executable(including compile time shared libs) and dlopened shared libs, if they are all strong symbols, those in executables will be used for dlopened shared libs.
 
