@@ -1,4 +1,5 @@
 {
     "cmake.configureOnOpen": true,
-    "cmake.sourceDirectory": "${workspaceFolder}/dlopen/RTLD_LOCAL"
+    "cmake.sourceDirectory": "${workspaceFolder}/dlopen/RTLD_LOCAL",
+    "editor.formatOnSave": true
 }
