@@ -1,7 +1,10 @@
 #include "include/SomeClass.h"
+#include <dlfcn.h>
 #include <iostream>
 
 int main() {
-  SomeClass myclass{"Shan Weiqiang"};
-  std::cout << myclass.get_name() << std::endl;
+  auto handle = dlopen("build/libsome.so", RTLD_LOCAL | RTLD_NOW);
+  if (!handle) {
+    printf("%s", dlerror());
+  }
 }
